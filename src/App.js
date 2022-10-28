@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import "./App.css";
 
@@ -20,12 +19,6 @@ function App() {
       .then((result) => {
         setQuote(result);
       });
-
-  console.log(selectedOption)
-
-  const getQuote = async () => {
-    const res = await fetch(`http://numbersapi.com/${number}`);
-    console.log(res.json());
   };
 
   return (
@@ -52,15 +45,8 @@ function App() {
 
       <button id="click" onClick={getQuote}>Click Me</button>
       <div id="result">{quote}</div>
-      <select value={selectedOption} onChange={e => {setSelectedOption(e.target.value)}}>
-        {OPTIONS.map((option) => (
-          <option value={option.value}>{option.label}</option>
-        ))}
-      </select>`
-
-      <button onClick={getQuote}>Click Me</button>
     </div>
   );
 }
-}
+
 export default App;
